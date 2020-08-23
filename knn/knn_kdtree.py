@@ -30,7 +30,7 @@ class KdTree:
             axis = depth % self.n
             mid = int(m / 2)
             dataSetcopy = sorted(dataSet, key=lambda x: x[axis])
-            node = Node(dataSetcopy[mid], label[mid], depth)
+            node = Node(dataSetcopy[mid], label[mid], depth) # 此处label未与data一起进行变换，索引是否有误？
             if depth == 0:
                 self.KdTree = node
             node.lchild = self.create(dataSetcopy[:mid], label, depth+1)
